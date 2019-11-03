@@ -24,6 +24,17 @@
     |-- ...
 ```
 `model_final.py`和`model_final_2.py`只是在模型保存方式上有区别，前者占空间，后者费时间。
+
+训练模型请使用
+```
+python3 model_final_2.py --model_name_or_path ./chinese_roberta_wwm_ext_pytorch/ --do_train --do_lower_case --data_dir ./data/noextension/ --max_seq_length 128 --per_gpu_train_batch_size 16 --learning_rate 2e-5 --num_train_epochs 5.0 --output_dir ./tmp/ --overwrite_output_dir --evaluate_during_training
+```
+
+预测结果请使用
+```
+python3 model_final_2.py --model_name_or_path ./chinese_roberta_wwm_ext_pytorch/ --do_predict --do_lower_case --data_dir ./data/noextension/ --per_gpu_test_batch_size 16 --output_dir ./tmp/
+```
+
 说说模型效果：
 - 使用`RoBERTa-wwm-ext`和`RoBERTa-wwm-ext-large`能比`BERT-wwm-ext`提升0.005，而roberta base和large效果差别不大，就0.002左右。
 - 利用问句相似性传递做数据增强容易过拟合，而且本训练集标注有很多问题，不对训练集做任何修改的话，用了数据增强反而下降0.005左右。同样做相似性传递后处理也会下降0.001~0.005，所以就没用数据增强和后处理。
