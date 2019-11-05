@@ -1,5 +1,5 @@
 # chip2019_task2_question_pairs_matching
-[CHIP 2019 平安医疗科技疾病问答迁移学习比赛](https://www.biendata.com/competition/chip2019/)，本质上就是一个类似于Quora Question Pairs的问句匹配问题。基于[huggingface/pytorch-transformers](https://github.com/huggingface/transformers/blob/master/examples/run_glue.py)实现的BERT baseline，代码比较冗余，中文预训练模型采用[ymcui/Chinese-BERT-wwm](https://github.com/ymcui/Chinese-BERT-wwm)。因为条件有限（没有GPU。。。），所以只跑了几个baseline（提交次数惨淡），没有trick、模型融合以及超参数选择，只做10折交叉验证，A榜应该就能达到0.878+，B榜0.864+，A榜rank 9，B榜rank11，作为baseline效果还是可以的。
+[CHIP 2019 平安医疗科技疾病问答迁移学习比赛](https://www.biendata.com/competition/chip2019/)，本质上就是一个类似于Quora Question Pairs的问句匹配问题。基于[huggingface/pytorch-transformers](https://github.com/huggingface/transformers/blob/master/examples/run_glue.py)实现的BERT baseline，代码比较冗余，中文预训练模型采用[ymcui/Chinese-BERT-wwm](https://github.com/ymcui/Chinese-BERT-wwm)。因为条件有限（没有GPU。。。），所以只跑了几个baseline（提交次数惨淡），没有trick、模型融合以及超参数选择，只做10折交叉验证，A榜应该就能达到0.878+，B榜0.864+，A榜rank 9，B榜rank11，剔除了小号和未报名队伍后rank7，作为baseline效果还是可以的。
 
 项目文件目录结构及文件说明如下：
 ```
